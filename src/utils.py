@@ -14,7 +14,7 @@ def _build_data_loader(batch_size, X, y=None):
     n_batch = int(np.ceil(size / float(batch_size)))
     batches = [(int(i * batch_size), int(min(size, (i + 1) * batch_size))) 
                for i in range(n_batch)]
-    for batch_index, (start, end) in enumerate(batches):
+    for i, (start, end) in enumerate(batches):
         batch_ids = idx_array[start:end]
         x = Variable(torch.from_numpy(X[batch_ids]))
         if y is not None:
